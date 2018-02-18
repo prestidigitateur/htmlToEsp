@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>HTMLtoESP</title>
+
+    <meta name="description" content="Convert your html page to one-line Esp8266 compatible form.">
+    <meta name="author" content="Dmitriy Grid">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+<body>
+    <main>
+        <div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="tabbable">
+
+                        <ul class="nav nav-tabs" style="border-bottom: 0px">
+                            <li class="active" style="padding-left: 15px">
+                                <a id="h" href="#html" data-toggle="tab">HTML</a>
+                            </li>
+                            <li>
+                                <a id="e" href="#esp" data-toggle="tab">ESP</a>
+                            </li>
+                            <li>
+                                <a href="#how" data-toggle="tab">How it's works?</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="html">
+                                <div class="row">
+                                       <textarea class="form-control" placeholder="Paste your html code here. Or drop your html file here." id="sourse" ondragover="return false;" ondrop="onFileDrop(event)"></textarea>
+                                       <p></p>
+                                       <button type="button" class="btn btn-primary" onclick="convertCode()">Convert</button>
+                                       <button type="button" class="btn btn-info" onclick="copyCode('sourse')">Copy</button>
+                                       <button type="button" class="btn btn-danger" onclick="clearCode('sourse')">Clear</button>
+                                </div>                             
+                            </div>
+                            <div class="tab-pane" id="esp">
+                                <div class="row">
+                                   <textarea class="form-control" placeholder="Paste your line from ArduinoIDE here." id="compressed"></textarea>
+                                   <p></p>
+                                   <button type="button" class="btn btn-primary" onclick="restoreCode()">Repair</button>
+                                    <button type="button" class="btn btn-info" onclick="copyCode('compressed')">Copy</button>
+                                    <button type="button" class="btn btn-info" onclick="copyCodeAsString('compressed')">Copy as String s = "...";</button>
+                                    <button type="button" class="btn btn-danger" onclick="clearCode('compressed')">Clear</button>
+                                </div>       
+                            </div>
+                             <div class="tab-pane" id="how">
+                                <div class="row">
+                                    <textarea class="form-control" readonly style="background: white">
+This web application is written to automate site migration (html, css, js *) to Esp8266.
+Insert your html code and click "convert", your code will remove line breaks and " will be replaced with \".
+In the same way, you can convert styles and JavaScript.
+!Important, your JavaScript should not have comments like: "//comment", otherwise when deleting the line breaks the first comment will cut off all further code.
+
+Это веб приложение написано для автоматизации переноса сайта (html, css, js*) на Esp8266.
+Вставьте свой html код и нажмите "convert", в вашем коде будут удалены переносы строк и " будут заменены на \".
+Таким же образом можно конвертировать стили и JavaScript. 
+!Важно, в вашем JavaScript'e не должно быть комментариев вида: "//комментарий", иначе при удалении переноса строк первый коментарий обрежет весь дальнейший код.
+                                    </textarea>
+                                </div>       
+                            </div>
+                        </div>
+                    </div>
+				</div>
+			</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <center>
+                Written by Dmitry Grid for personal use.<br>
+                The app is offered AS-IS. <br>
+            <a href="https://github.com/prestidigitateur/htmlToEsp">Github</a>
+            <a href="https://t.me/prestidigitateurVS">Telegam</a>
+            </center>
+        </div>
+    </footer>
+
+    <!-- jQuery v2.1.4 -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Bootstrap v3.3.5 -->
+    <script src="js/bootstrap.min.js"></script>    
+
+    <script src="js/scripts.js"></script>
+
+</body>
+
+</html>
